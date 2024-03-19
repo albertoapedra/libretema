@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import fondobalda from "../.././public/fondobalda-02.png";
 import esquinaizq from "../.././public/esquina-izq-02.png";
-export function Libroficha({ data, id, inicio }) {
+export function Libroficha({ data, id, inicio, imageLoader }) {
     return (
         <article>
             <div className={styles.libroficha}>
@@ -13,7 +13,7 @@ export function Libroficha({ data, id, inicio }) {
                 </div>
                 <section style={{backgroundImage: `url(${fondobalda.src})`}}>
                     <div className={styles.portadacaja} >
-                        <Image src={data["libro" + (id)].portada} width={158} height={381} alt={data["libro" + (id)].titulo} />
+                        <Image imageLoader={imageLoader} src={data["libro" + (id)].portada} width={158} height={381} alt={data["libro" + (id)].titulo} />
                     </div>
                     <div className={styles.titulocaja} >
                         {data["libro" + (id)].titulo}
