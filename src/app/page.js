@@ -8,12 +8,12 @@ import { Libroficha } from "./libroficha";
 import fondobalda from "../.././public/fondobalda-02.png";
 import esquinader from "../.././public/esquina-der-02.png";
 import fondoelementomenu from "../.././public/fondo-menu-01.webp";
-
+const imageLoader = ({ src }) => {
+  return `https://albertoapedra.github.io/libretema/${src}`
+}
 
 export default function Home() {
-  const imageLoader = ({ src }) => {
-    return `https://albertoapedra.github.io/libretema${src}`
-  }
+  
   const ARRAYLIBROS = [];
   Object.values(Object.values(data))
     .forEach(function (seccion) {
