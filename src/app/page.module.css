@@ -1,230 +1,682 @@
-.main {
+.contenedormenus {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  position: fixed;
+  width: 20%;
+  z-index: 1001;
 }
 
-.description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
-  width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono);
+.contenedorlogo {
+  z-index: 1001;
 }
 
-.description a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
+.contenedorlogo div {
 
-.description p {
-  position: relative;
-  margin: 0;
-  padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
-}
-
-.code {
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
-  max-width: 100%;
-  width: var(--max-width);
-}
-
-.card {
-  padding: 1rem 1.2rem;
-  border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
-}
-
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
-
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-.card p {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  max-width: 30ch;
-  text-wrap: balance;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 4rem 0;
-}
-
-.center::before {
-  background: var(--secondary-glow);
-  border-radius: 50%;
-  width: 480px;
-  height: 360px;
-  margin-left: -400px;
-}
-
-.center::after {
-  background: var(--primary-glow);
-  width: 240px;
-  height: 180px;
-  z-index: -1;
-}
-
-.center::before,
-.center::after {
-  content: "";
-  left: 50%;
-  position: absolute;
-  filter: blur(45px);
-  transform: translateZ(0);
+  background-position: bottom;
+  background-repeat: repeat-x;
 }
 
 .logo {
+  background: transparent;
+  color: #fff;
+  z-index: 999;
+}
+
+.contenedormenu {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  padding-left: 1%;
+  height: 225px;
   position: relative;
-}
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
-    border: 1px solid rgba(var(--card-border-rgb), 0.15);
-  }
-
-  .card:hover span {
-    transform: translateX(4px);
-  }
+  width: 45%;
 }
 
-@media (prefers-reduced-motion) {
-  .card:hover span {
-    transform: none;
-  }
+.menu {
+  display: flex;
+  position: fixed;
+  z-index: 1003;
+  flex-direction: column;
+  transform-origin: 52% 63%;
+  rotate: 270deg;
+  width: 9%;
+  margin-left: 2%;
+  margin-top: -0.5%;
+  min-width: 180px;
 }
 
-/* Mobile */
+.menu li {
+  list-style-type: none;
+  width: 100%;
+
+}
+
+.menu li button {
+  color: #ffffff;
+  display: flex;
+  text-decoration: none;
+  padding-left: 0.5em;
+  font-size: 1.08em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  background-repeat: no-repeat;
+  min-height: 4.5em;
+  margin-bottom: -1.35em;
+  width: 100%;
+  cursor: pointer;
+}
+
+.menu li button:hover {
+  margin-left: 1em;
+}
+
+.cabecera {
+  height: 4.5vh
+}
+
+.contenedorestanteria {
+  padding-bottom: 63em;
+}
+
+.baldader {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 1.8em;
+}
+
+.baldaizq {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.8em;
+}
+
+.estanteriader {
+  display: flex;
+  align-self: stretch;
+  background-repeat: no-repeat;
+  background-position: 0 bottom;
+  flex-grow: 1;
+}
+
+.estanteriaizq {
+  display: flex;
+  align-self: stretch;
+  background-repeat: no-repeat;
+  background-position: 100% bottom;
+  flex-grow: 1;
+}
+
+.sinopsiscaja {
+  display: none;
+}
+
+.libroficha .sinopsiscaja {
+  display: flex;
+}
+
+.estanteria {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  padding-left: 0;
+  display: flex;
+}
+
+.preciocaja {
+  color: #999;
+  font-size: 0.72vw;
+  line-height: 31px;
+}
+
+.portadacaja img {
+  width: 100%;
+  height: 100%;
+}
+
+.titulocaja {
+  color: #000000;
+  transform-origin: 0%;
+  rotate: 270deg;
+  background-color: #ffffff;
+
+  padding-left: 0.36em;
+  position: absolute;
+
+}
+
+.autorcaja {
+  color: #000000;
+  transform-origin: 0%;
+  rotate: 270deg;
+  background-color: #ffffff;
+  padding-left: 0.36em;
+  position: absolute;
+}
+
+.libro button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: monospace;
+  line-height: 1.6;
+  text-align: left;
+}
+
+
+
+.baldaizq .libro:hover .sinopsiscaja {
+  display: flex;
+  width: 36vw;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 9px;
+  margin-top: 7.8em;
+  right: 0;
+  padding: 1em;
+  font-size: 1.35em;
+  position: absolute;
+  z-index: 2;
+  font-size: 1em;
+  border: #000000 solid 3px;
+  font-weight: 400;
+}
+
+.baldader .libro:hover .sinopsiscaja {
+  display: flex;
+  width: 31vw;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 9px;
+  margin-top: 7.8em;
+  left: 0;
+  padding: 1em;
+  font-size: 1.35em;
+  position: absolute;
+  z-index: 2;
+  font-size: 1em;
+  border: #000000 solid 3px;
+  font-weight: 400;
+}
+
+.baldaizq .libro:hover .preciocaja {
+  color: #ffffff;
+  background-color: #000000;
+  font-size: 1.1em;
+  border-radius: 6px;
+  line-height: inherit;
+  text-align: right;
+  padding-right: 1em;
+  right: 0;
+  position: absolute;
+}
+
+.baldader .libro:hover .preciocaja {
+  color: #ffffff;
+  background-color: #000000;
+  font-size: 1.1em;
+  border-radius: 6px;
+  line-height: inherit;
+  text-align: right;
+  padding-right: 1em;
+  position: absolute;
+}
+
+.baldaizq .libro:hover .titulocaja {
+  rotate: 0deg;
+  margin-top: 2em;
+  margin-left: 0;
+  font-size: 1.1em;
+  border-radius: 6px;
+  padding-right: 1em;
+  text-align: right;
+  right: 0;
+  border: #000000 solid 3px;
+
+}
+
+.baldader .libro:hover .titulocaja {
+  rotate: 0deg;
+  margin-top: 2em;
+  margin-left: 0;
+  font-size: 1.1em;
+  border-radius: 6px;
+  padding-left: 1em;
+  border: #000000 solid 3px;
+
+}
+
+.baldaizq .libro:hover .autorcaja {
+  rotate: 0deg;
+  margin-top: 4.5em;
+  margin-left: 0;
+  font-size: 1.1em;
+  border-radius: 6px;
+  padding-right: 1em;
+  text-align: right;
+  right: 0;
+  border: #000000 solid 3px;
+
+}
+
+.baldader .libro:hover .autorcaja {
+  rotate: 0deg;
+  margin-top: 4.5em;
+  margin-left: 0;
+  font-size: 1.1em;
+  border-radius: 6px;
+  padding-left: 1em;
+  border: #000000 solid 3px;
+
+}
+
+.botoninicio {
+  border: solid #636363 2px;
+  background-color: #ffffff;
+  cursor: pointer;
+  margin: 1em 1em 1em auto;
+  display: flex;
+  font-size: 1.35em;
+  padding: 0.5%;
+  border-radius: 5px;
+}
+
+
 @media (max-width: 700px) {
-  .content {
-    padding: 4rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    margin-bottom: 120px;
-    max-width: 320px;
-    text-align: center;
-  }
-
-  .card {
-    padding: 1rem 2.5rem;
-  }
-
-  .card h2 {
-    margin-bottom: 0.5rem;
-  }
-
-  .center {
-    padding: 8rem 0 6rem;
-  }
-
-  .center::before {
-    transform: none;
-    height: 300px;
-  }
-
-  .description {
-    font-size: 0.8rem;
-  }
-
-  .description a {
-    padding: 1rem;
-  }
-
-  .description p,
-  .description div {
+  .contenedorlogo {
+    min-width: 360px;
     display: flex;
-    justify-content: center;
     position: fixed;
+    margin-top: -180px;
+    z-index: 1002;
+  }
+
+  .contenedorlogo img {
+    position: fixed;
+  }
+
+  .contenedorlogo .estanteriader {
+    min-width: 200px;
+  }
+
+  .contenedormenus {
+    min-width: 360px;
+    margin-top: 90px;
+    width: 21%;
+  }
+
+  .contenedormenus .estanteriader {
+    min-width: 200px;
+  }
+
+  .contenedormenu img {
+    display: none;
+    margin-top: 225px;
+    margin-left: -135px;
+  }
+
+  .menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 1003;
     width: 100%;
+    align-items: flex-start;
+    transform-origin: 27% 60%;
+    max-width: 360px;
   }
 
-  .description p {
-    align-items: center;
-    inset: 0 0 auto;
-    padding: 2rem 1rem 1.4rem;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--callout-rgb), 0.5)
-    );
-    background-clip: padding-box;
-    backdrop-filter: blur(24px);
+  .menu li {
+    list-style-type: none;
+    padding: 0 0.25em;
+    width: 45%;
+
   }
 
-  .description div {
+  .contenedorestanteria {
+    padding-top: 25em;
+    position: relative;
+    z-index: 0;
+    padding-bottom: 6.3em;
+  }
+
+  .estanteria {
+    width: 100%;
+    flex-wrap: wrap;
+    background-size: 0.23%;
+    background-position: 0 96.5%;
+  }
+
+  .estanteria :nth-child(6),
+  .estanteria :nth-child(7),
+  .estanteria :nth-child(8),
+  .estanteria :nth-child(9) {
+    background-image: none !important;
+  }
+
+  .libro {
+    width: 27.5%;
+    margin-right: -9%;
+    margin-bottom: 1.08em;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: 0.81%;
+  }
+
+  .libroficha {
+    display: flex;
     align-items: flex-end;
-    pointer-events: none;
-    inset: auto 0 0;
-    padding: 2rem;
-    height: 200px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--background-end-rgb)) 40%
-    );
-    z-index: 1;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: -4.5em;
+
+  }
+
+  .libroficha section {
+    width: 45%;
+    padding-right: 4.5%;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: 0.60%;
+  }
+
+  .libroficha .sinopsiscaja {
+    width: 100%;
+    padding: 1vh;
+    order: 3;
+
+  }
+
+  .libroficha .titulocaja,
+  .libroficha .autorcaja,
+  .libroficha .preciocaja {
+    font-size: 1em;
+  }
+
+  .libroficha .estanteriaizq {
+    align-self: stretch;
+  }
+
+  .libro button {
+    font-size: 0.54vw;
+  }
+  .libro:hover {
+    translate: -3.6em 4.5em;
+    height: 450px;
+    margin-bottom: -50%;
+    background-image: none !important;
+  }
+  .titulocaja {
+    font-size: 3.33em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 45ch;
+    width: calc(22em);
+    margin-top: -1.45em;
+    margin-left: 1.26em;
+  }
+
+  .autorcaja {
+    font-size: 3.33em;
+    width: calc(22em);
+    margin-top: -1.45em;
+    margin-left: 2.61em;
+  }
+
+  .preciocaja {
+    font-size: 6.3em;
+    line-height: 25px;
+    padding-left: 0.5em;
   }
 }
 
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
-  .grid {
-    grid-template-columns: repeat(2, 50%);
+/* Non Mobile */
+@media (min-width: 701px) and (max-width: 1241px) {
+  .contenedorestanteria {
+    padding-top: 252px;
+  }
+
+  .contenedorlogo {
+    min-width: 360px;
+    display: flex;
+    position: fixed;
+    margin-top: -180px;
+    z-index: 1002;
+  }
+
+  .contenedorlogo img {
+    position: fixed;
+  }
+
+  .contenedorlogo .estanteriader {
+    min-width: 200px;
+  }
+
+  .contenedormenus {
+    min-width: 360px;
+    margin-top: 90px;
+    width: 21%;
+  }
+
+  .contenedormenus .estanteriader {
+    min-width: 200px;
+  }
+
+  .contenedormenu img {
+    margin-top: 252px;
+    margin-left: -135px;
+    display: none;
+  }
+
+  .baldaizq .estanteria {
+    justify-content: flex-start;
+    width: 81%;
+    margin-right: -9%;
+
+  }
+
+  .baldader .estanteria {
+    justify-content: center;
+    width: 92.5%;
+    padding-left: 8.5%;
+  }
+
+  .libro {
+    width: 13%;
+    margin-right: -4.5%;
+    font-weight: 700;
+    background-image: none !important;
+  }
+  .libro:hover {
+    translate: -3.6em 4.5em;
+    height: 450px;
+    margin-bottom: -50%;
+    
+  }
+  .libro button {
+    font-size: 0.63vw;
+  }
+
+  .titulocaja {
+    width: calc(18em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 45ch;
+    margin-top: -1.8em;
+    margin-left: 1em;
+    font-size: 1.53em;
+  }
+
+  .autorcaja {
+    width: calc(18em);
+    margin-top: -1.8em;
+    margin-left: 2.43em;
+    font-size: 1.53em;
+  }
+  .preciocaja {
+    font-size: 1.8em;
+  }
+
+  .libroficha {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: -180px;
+    flex-wrap: wrap;
+
+  }
+
+  .libroficha section {
+    width: 27%;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    padding-right: 9%;
+  }
+
+  .libroficha section .portadacaja img {
+    max-width: 187px;
+  }
+
+  .libroficha .estanteriaizq {
+    min-width: 200px;
+  }
+
+  .libroficha .sinopsiscaja {
+    width: 100%;
+    padding-left: 9%;
+    padding-right: 9%;
+    align-self: stretch;
+    padding-top: 9%;
+    order: 3;
+  }
+
+  .libroficha .titulocaja,
+  .libroficha .autorcaja,
+  .libroficha .preciocaja {
+    font-size: 0.69vw;
+  }
+
+  .libroficha .estanteriaizq {
+    align-self: stretch;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .vercelLogo {
-    filter: invert(1);
+/* Non Mobile */
+@media (min-width: 1242px) {
+  .contenedorlogo {
+    min-width: 360px;
+    display: flex;
+    position: fixed;
+    margin-top: -171px;
+    z-index: 1002;
   }
 
-  .logo {
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  .contenedorlogo img {
+    position: fixed;
   }
-}
 
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
+  .contenedorlogo .estanteriader {
+    min-width: 200px;
   }
-  to {
-    transform: rotate(0deg);
+
+  .contenedormenus {
+    min-width: 360px;
+    margin-top: 90px;
+    width: 21%;
+    top: 0;
+  }
+
+  .contenedormenus .estanteriader {
+    min-width: 200px;
+  }
+
+  .contenedormenu img {
+    margin-top: 225px;
+    margin-left: -135px;
+  }
+
+  .baldaizq .estanteria {
+    justify-content: flex-start;
+    width: 67.5%;
+    padding-right: 5%;
+
+  }
+
+  .baldader .estanteria {
+    justify-content: center;
+    width: 81%;
+    padding-left: 18%;
+  }
+
+  .libro {
+    width: 18%;
+    margin-right: -8.1%;
+    font-weight: 700;
+    background-image: none !important;
+  }
+
+  .libro button {
+    font-size: 0.63vw;
+  }
+
+  .titulocaja {
+    width: calc(25em);
+    margin-top: -1.8em;
+    margin-left: 1.35em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 45ch;
+  }
+
+  .autorcaja {
+    width: calc(25em);
+    margin-top: -1.8em;
+    margin-left: 2.7em;
+  }
+  .libro:hover {
+    translate: -6.3em 5.4em;
+    height: 450px;
+    margin-bottom: -50%;
+  }
+  .libro:hover .preciocaja {
+    width: calc(25em);
+  }
+
+  .libroficha {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    padding-top: 3%;
+
+  }
+
+  .libroficha section {
+    width: 27%;
+    background-position: bottom;
+    background-repeat: repeat-x;
+    padding-right: 9%;
+  }
+
+  .libroficha section .portadacaja img {
+    max-width: 185px;
+  }
+
+  .libroficha .estanteriaizq {
+    min-width: 200px;
+  }
+
+  .libroficha .sinopsiscaja {
+    width: 54%;
+    padding-left: 23%;
+    align-self: stretch;
+    padding-top: 21vh;
+  }
+
+  .libroficha .titulocaja,
+  .libroficha .autorcaja,
+  .libroficha .preciocaja {
+    font-size: 0.69vw;
+  }
+
+  .libroficha .estanteriaizq {
+    align-self: stretch;
   }
 }

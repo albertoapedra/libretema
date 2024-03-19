@@ -1,94 +1,159 @@
+'use client';
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
+import data from "./data.json";
+import { Estanteria } from "./estanteria";
+import { Libroficha } from "./libroficha";
+import fondobalda from "../.././public/fondobalda-02.png";
+import esquinader from "../.././public/esquina-der-02.png";
+import fondoelementomenu from "../.././public/fondo-menu-01.webp";
+
 
 export default function Home() {
+  const imageLoader = ({ src }) => {
+    return `http://localhost/libretema/${src}`
+  }
+  const ARRAYLIBROS = [];
+  Object.values(Object.values(data))
+    .forEach(function (seccion) {
+      ARRAYLIBROS.push(seccion)
+    });
+
+  function dynamicSort(property) {
+    var sortOrder = 1;
+    if (property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
+    }
+    return function (a, b) {
+      if (sortOrder == -1) {
+        return b[property].localeCompare(a[property]);
+      } else {
+        return a[property].localeCompare(b[property]);
+      }
+    }
+  }
+  const handleClickLibro = (event) => {
+    setEstado({
+      estanteria:
+        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickInicio} />
+    });
+  };
+  const handleClickLibroAutor = (event) => {
+    setEstado({
+      estanteria:
+        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickAutor} />
+    });
+  };
+  const handleClickLibroEditorial = (event) => {
+    setEstado({
+      estanteria:
+        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickEditorial} />
+    });
+  };
+  const handleClickLibroColor = (event) => {
+    setEstado({
+      estanteria:
+        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickColor} />
+    });
+  };
+
+  const handleClickInicio = () => {
+    setEstado({
+      estanteria:
+        <Estanteria data={data} definelibro={handleClickLibro} />
+    });
+  }
+
+  const handleClickAutor = () => {
+
+    const ORDENADOSPORAUTOR = {};
+    for (const index in ARRAYLIBROS.sort(dynamicSort("autororden"))) {
+      ORDENADOSPORAUTOR[`libro${parseInt(index) + 1}`] = ARRAYLIBROS.sort(dynamicSort("autororden"))[index];
+    }
+
+    setEstado({
+      estanteria:
+        <Estanteria data={ORDENADOSPORAUTOR} definelibro={handleClickLibroAutor} />
+    });
+  }
+
+  const handleClickEditorial = () => {
+
+    const ORDENADOSPOREDITORIAL = {};
+    for (const index in ARRAYLIBROS.sort(dynamicSort("editorial"))) {
+      ORDENADOSPOREDITORIAL[`libro${parseInt(index) + 1}`] = ARRAYLIBROS.sort(dynamicSort("editorial"))[index];
+    }
+    setEstado({
+      estanteria:
+        <Estanteria data={ORDENADOSPOREDITORIAL} definelibro={handleClickLibroEditorial} />
+    });
+  }
+  const handleClickColor = () => {
+
+    const ORDENADOSPORCOLOR = {};
+    for (const index in ARRAYLIBROS.sort(dynamicSort("color"))) {
+      ORDENADOSPORCOLOR[`libro${parseInt(index) + 1}`] = ARRAYLIBROS.sort(dynamicSort("color"))[index];
+    }
+    setEstado({
+      estanteria:
+        <Estanteria data={ORDENADOSPORCOLOR} definelibro={handleClickLibroColor} />
+    });
+  }
+  let [Estado, setEstado] = useState({
+    estanteria:
+      <Estanteria data={data} definelibro={handleClickLibro} imageLoader={imageLoader} />
+  });
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <div className={styles.contenedormenus}>
+        <div className={styles.contenedorlogo}>
+          <Image
+          loader={imageLoader}
+            src="libretema-06.webp"
+            alt="Libretema Logo"
+            width={523}
+            height={275}
+            priority
+            className={styles.logo}
+          />
+        </div>
+        <nav className={styles.contenedormenu} style={{
+        backgroundImage: `url(${fondobalda.src})`
+      }}>
+          <ul className={styles.menu}>
+            <li key="yuio"><button onClick={handleClickInicio} style={{
+        backgroundImage: `url(${fondoelementomenu.src})`
+      }}>mi biblioteca</button></li>
+            <li key="zxcv"><button onClick={handleClickAutor} style={{
+        backgroundImage: `url(${fondoelementomenu.src})`
+      }}>autores</button></li>
+            <li key="asdf"><button onClick={handleClickEditorial} style={{
+        backgroundImage: `url(${fondoelementomenu.src})`
+      }}>editoriales</button></li>
+            <li key="qwer"><button onClick={handleClickColor} style={{
+        backgroundImage: `url(${fondoelementomenu.src})`
+      }}>colores</button></li>
+          </ul>
+          <Image
+          loader={imageLoader}
+            src="libretema-bre.webp"
+            alt="Libretema Logo"
+            width={319}
+            height={274}
+            priority
+            className={styles.logo}
+          />
+        </nav>
+        <div className={styles.estanteriader}  style={{
+        backgroundImage: `url(${esquinader.src})`
+      }}>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className={styles.contenedorestanteria} >
+        {Estado.estanteria}
       </div>
     </main>
   );
