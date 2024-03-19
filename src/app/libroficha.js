@@ -13,7 +13,7 @@ export function Libroficha({ data, id, inicio, imageLoader }) {
                 </div>
                 <section style={{backgroundImage: `url(${fondobalda.src})`}}>
                     <div className={styles.portadacaja} >
-                        <Image imageLoader={imageLoader} src={data["libro" + (id)].portada} width={158} height={381} alt={data["libro" + (id)].titulo} />
+                        <Image loader={imageLoader} src={data["libro" + (id)].portada} width={158} height={381} alt={data["libro" + (id)].titulo} />
                     </div>
                     <div className={styles.titulocaja} >
                         {data["libro" + (id)].titulo}
