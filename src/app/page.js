@@ -12,7 +12,7 @@ import fondoelementomenu from "../.././public/fondo-menu-01.webp";
 
 export default function Home() {
   const imageLoader = ({ src }) => {
-    return `https://albertoapedra.github.io/libretema/${src}`
+    return `https://albertoapedra.github.io/libretema${src}`
   }
   const ARRAYLIBROS = [];
   Object.values(Object.values(data))
