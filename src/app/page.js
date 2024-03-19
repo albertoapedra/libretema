@@ -37,32 +37,32 @@ export default function Home() {
   const handleClickLibro = (event) => {
     setEstado({
       estanteria:
-        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickInicio} />
+        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickInicio} imageLoader={imageLoader} />
     });
   };
   const handleClickLibroAutor = (event) => {
     setEstado({
       estanteria:
-        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickAutor} />
+        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickAutor} imageLoader={imageLoader} />
     });
   };
   const handleClickLibroEditorial = (event) => {
     setEstado({
       estanteria:
-        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickEditorial} />
+        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickEditorial} imageLoader={imageLoader} />
     });
   };
   const handleClickLibroColor = (event) => {
     setEstado({
       estanteria:
-        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickColor} />
+        <Libroficha data={data} id={Number(event.currentTarget.getAttribute('id'))} inicio={handleClickColor} imageLoader={imageLoader} />
     });
   };
 
   const handleClickInicio = () => {
     setEstado({
       estanteria:
-        <Estanteria data={data} definelibro={handleClickLibro} />
+        <Estanteria data={data} definelibro={handleClickLibro} imageLoader={imageLoader} />
     });
   }
 
@@ -75,7 +75,7 @@ export default function Home() {
 
     setEstado({
       estanteria:
-        <Estanteria data={ORDENADOSPORAUTOR} definelibro={handleClickLibroAutor} />
+        <Estanteria data={ORDENADOSPORAUTOR} definelibro={handleClickLibroAutor} imageLoader={imageLoader} />
     });
   }
 
@@ -87,7 +87,7 @@ export default function Home() {
     }
     setEstado({
       estanteria:
-        <Estanteria data={ORDENADOSPOREDITORIAL} definelibro={handleClickLibroEditorial} />
+        <Estanteria data={ORDENADOSPOREDITORIAL} definelibro={handleClickLibroEditorial} imageLoader={imageLoader} />
     });
   }
   const handleClickColor = () => {
@@ -98,7 +98,7 @@ export default function Home() {
     }
     setEstado({
       estanteria:
-        <Estanteria data={ORDENADOSPORCOLOR} definelibro={handleClickLibroColor} />
+        <Estanteria data={ORDENADOSPORCOLOR} definelibro={handleClickLibroColor} imageLoader={imageLoader} />
     });
   }
   let [Estado, setEstado] = useState({
