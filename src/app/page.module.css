@@ -369,11 +369,12 @@
   }
 
   .libroficha section {
-    width: 45%;
+    width: 54%;
     padding-right: 4.5%;
     background-position: bottom;
     background-repeat: repeat-x;
-    background-size: 0.60%;
+    background-size: 0.59%;
+    max-width: 171px;
   }
 
   .libroficha .sinopsiscaja {
