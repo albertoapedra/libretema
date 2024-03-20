@@ -280,13 +280,13 @@
   .contenedorlogo {
     min-width: 360px;
     display: flex;
-    position: fixed;
+    position: absolute;
     margin-top: -180px;
     z-index: 1002;
   }
 
   .contenedorlogo img {
-    position: fixed;
+    position: absolute;
   }
 
   .contenedorlogo .estanteriader {
@@ -297,6 +297,7 @@
     min-width: 360px;
     margin-top: 90px;
     width: 21%;
+    position: relative;
   }
 
   .contenedormenus .estanteriader {
@@ -313,23 +314,23 @@
     display: flex;
     margin: 0;
     padding: 0;
-    position: fixed;
+    position: absolute;
     z-index: 1003;
     width: 100%;
     align-items: flex-start;
-    transform-origin: 27% 60%;
+    transform-origin: 56% 56%;
     max-width: 360px;
   }
 
   .menu li {
     list-style-type: none;
     padding: 0 0.25em;
-    width: 45%;
+    width: 90%;
 
   }
 
   .contenedorestanteria {
-    padding-top: 25em;
+    padding-top: 0;
     position: relative;
     z-index: 0;
     padding-bottom: 6.3em;
