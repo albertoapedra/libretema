@@ -126,10 +126,8 @@
 }
 
 .portadacaja img {
-  max-width: 195px;
-  max-height: 450px;
-  width: 200% !important;
-  height: 200% !important;
+  max-width: 100%;
+  height: auto;
   aspect-ratio: 195 / 450 !important;
 }
 
