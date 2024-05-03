@@ -126,8 +126,11 @@
 }
 
 .portadacaja img {
-  width: 100%;
-  height: 100%;
+  max-width: 195px;
+  max-height: 450px;
+  width: 200% !important;
+  height: 200% !important;
+  aspect-ratio: 195 / 450 !important;
 }
 
 .titulocaja {
